@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>フィッシング詐欺体験コンテンツ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>守れ！あなたの情報 ～フィッシング詐欺体験～</h1>
+    </header>
+    <main>
+        <div class="tabs">
+            <button class="tab-button active" onclick="showStage(1)">ステージ1</button>
+            <button class="tab-button" onclick="showStage(2)" disabled>ステージ2</button>
+            <button class="tab-button" onclick="showStage(3)" disabled>ステージ3</button>
+            <button class="tab-button" onclick="showStage(4)" disabled>ステージ4</button>
+        </div>        
+
+        <section id="stage1" class="stage">
+            <h2>ステージ1: 不審なメールをチェックせよ！</h2>
+            <p>以下のメールを読んで、不審なポイントを見つけてください。</p>
+            <div class="email">
+                <p><strong>差出人:</strong> secure@bank-secure.com</p>
+                <p><strong>件名:</strong> アカウントが停止されました</p>
+                <p>お客様のアカウントが停止されました。以下のリンクからログインして確認してください。</p>
+                <a href="http://fake-bank-login.com" class="email-link">ログインページ</a>
+            </div>
+            <div class="options">
+                <button onclick="checkAnswer(1, 1)">差出人のメールアドレスが怪しい</button>
+                <button onclick="checkAnswer(1, 2)">件名に不審な点がある</button>
+                <button onclick="checkAnswer(1, 3)">リンクのURLが怪しい</button>
+                <button onclick="checkAnswer(1, 4)">メール本文の日本語が不自然</button>
+            </div>
+            <div id="feedback1" class="feedback"></div>
+        </section>
+
+        <section id="stage2" class="stage hidden">
+            <h2>ステージ2: 疑似ログイン画面に挑戦！</h2>
+            <p>以下のログイン画面が本物か偽物かを判断してください。</p>
+            <div class="login-page">
+                <label for="user">ユーザー名:</label>
+                <input type="text" id="user"><br>
+                <label for="pass">パスワード:</label>
+                <input type="password" id="pass"><br>
+                <button onclick="checkAnswer(2, 3)">ログインする</button>
+            </div>
+            <div id="feedback2" class="feedback"></div>
+        </section>
+
+        <section id="stage3" class="stage hidden">
+            <h2>ステージ3: 緊急アンケートの罠</h2>
+            <p>以下のアンケート画面を見て、不審な点を探してください。</p>
+            <div class="survey">
+                <p>アンケートにご協力いただきありがとうございます！<br>以下の情報を入力してください。</p>
+                <label for="name">名前:</label>
+                <input type="text" id="name"><br>
+                <label for="email">メールアドレス:</label>
+                <input type="email" id="email"><br>
+                <button onclick="checkAnswer(3, 1)">送信する</button>
+            </div>
+            <div id="feedback3" class="feedback"></div>
+        </section>
+
+        <section id="stage4" class="stage hidden">
+            <h2>ステージ4: すべての手口に挑む！</h2>
+            <p>以下の手口の中から正しい対策を選んでください。</p>
+            <div class="options">
+                <button onclick="checkAnswer(4, 3)">正しいURLを確認する</button>
+                <button onclick="checkAnswer(4, 1)">即座に情報を入力する</button>
+                <button onclick="checkAnswer(4, 2)">メールの指示に従う</button>
+                <button onclick="checkAnswer(4, 4)">リンクを無視して公式サイトを確認する</button>
+            </div>
+            <div id="feedback4" class="feedback"></div>
+        </section>
+    </main>
+    <footer>
+        <p> 2024 藤田プロジェクト</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
